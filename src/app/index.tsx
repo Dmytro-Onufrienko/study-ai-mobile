@@ -9,7 +9,6 @@ export default function Homepage() {
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 24, marginBottom: 16 }}>Welcome</Text>
-
       <Button type="primary" style={styles.button} onPress={() => router.push('/sign-in')}>
         Sign In
       </Button>

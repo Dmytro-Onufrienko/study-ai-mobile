@@ -4,7 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Button, Input } from '@ant-design/react-native';
 import { useRouter } from 'expo-router';
 
-export default function SignUp() {
+export default function SignIn() {
   const router = useRouter();
   const { control, handleSubmit } = useForm();
 
@@ -14,17 +14,17 @@ export default function SignUp() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 24, marginBottom: 16 }}>Sign Up</Text>
+      <Text style={{ fontSize: 24, marginBottom: 16 }}>Sign In</Text>
       <Controller
         control={control}
         name="email"
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
+            style={styles.input}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Email"
-            style={{ marginBottom: 16 }}
           />
         )}
       />
@@ -33,28 +33,27 @@ export default function SignUp() {
         name="password"
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
+            style={styles.input}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             placeholder="Password"
             secureTextEntry
-            style={{ marginBottom: 16 }}
           />
         )}
       />
       <Button type="primary" style={styles.button} onPress={handleSubmit(onSubmit)}>
-        Sign Up
+        Sign In
       </Button>
       <Text>
         Don't hane an account?
-        <Pressable onPress={() => router.push('/sign-in')}>
-          <Text>Sign In</Text>
-        </Pressable>
+        <Pressable onPress={() => router.push('/sign-up')}>
+          <Text>Sign Up</Text>
+      </Pressable>
       </Text>
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -68,5 +67,12 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 100
+  },
+  input: {
+    width: 300,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#000',
+    padding: 5
   }
 })
