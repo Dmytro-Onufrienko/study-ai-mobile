@@ -1,5 +1,6 @@
-import Dashboard from "@modules/project/pages/Dashboard";
+import Dashboard from "@modules/course/pages/Dashboard";
+import { AuthProvider } from "providers/AuthProvider";
 
 export default function DashboardPage() {
-  return <Dashboard />
+  return <AuthProvider><Dashboard /></AuthProvider>
 }

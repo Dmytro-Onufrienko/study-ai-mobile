@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import 'react-native-reanimated';
 import { setupStore } from 'store';
+import CustomHeader from '@modules/common/components/customHeader';
 
 const store = setupStore();
 
@@ -31,7 +32,13 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={DefaultTheme}>
       <Provider store={store}>
-        <Stack screenOptions={{ headerShown: false }}>
+        <Stack
+          screenOptions={{
+            header: () => (
+              <CustomHeader />
+            ),
+          }}
+        >
           <Stack.Screen name="sign-in" options={{ title: 'Sign In' }} />
           <Stack.Screen name="sign-up" options={{ title: 'Sign Up' }} />
           <Stack.Screen name="dashboard" options={{ title: 'Dashboard' }} />
