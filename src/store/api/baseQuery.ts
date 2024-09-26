@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query'
+import { fetchBaseQuery } from '@reduxjs/toolkit/query'
 import { storageService } from '@services/Storage';
 
 export const baseQuery = fetchBaseQuery({

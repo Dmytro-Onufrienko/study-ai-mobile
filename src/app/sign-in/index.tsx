@@ -1,24 +1,27 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Alert } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
-import { Button, Input } from '@ant-design/react-native';
+import { ActivityIndicator, Button, Input } from '@ant-design/react-native';
 import { useRouter } from 'expo-router';
 import { Routes } from '@constants/Routes';
 import { useSignInMutation } from '@modules/auth/api';
+import { storageService } from '@services/Storage';
 
 export default function SignIn() {
   const router = useRouter();
   const { control, handleSubmit } = useForm();
-  const [signUp, { data }] = useSignInMutation();
+  const [signUp, { isLoading, data, error }] = useSignInMutation();
 
   const onSubmit = async (data: any) => {
-    signUp(data);
-    router.push(Routes.DASHBOARD)
-  };
+    const authTokens = await signUp(data).unwrap();
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+    if (authTokens) {
+      storageService.setTokens(authTokens)
+      router.push(Routes.DASHBOARD)
+    }
+
+
+    // TODO: handle failed login
+  };
 
   return (
     <View style={styles.container}>
@@ -50,14 +53,15 @@ export default function SignIn() {
           />
         )}
       />
-      <Button type="primary" style={styles.button} onPress={handleSubmit(onSubmit)}>
+      {isLoading ? (<ActivityIndicator />) : (<Button type="primary" style={styles.button} onPress={handleSubmit(onSubmit)}>
         Sign In
-      </Button>
+      </Button>)}
+
       <Text>
         Don't hane an account?
         <Pressable onPress={() => router.push(Routes.SIGN_UP)}>
           <Text>Sign Up</Text>
-      </Pressable>
+        </Pressable>
       </Text>
     </View>
   );
