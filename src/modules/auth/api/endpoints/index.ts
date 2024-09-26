@@ -5,18 +5,18 @@ import { internalApi } from 'store/api';
 
 const authApi = internalApi.injectEndpoints({
   endpoints: build => ({
-    logIn: build.mutation<IAuthTokens, ISignInForm>({
+    signIn: build.mutation<IAuthTokens, ISignInForm>({
       query: signIn,
     }),
 
-    logOut: build.mutation<void, Pick<IAuthTokens, 'refreshToken'>>({
+    signOut: build.mutation<void, Pick<IAuthTokens, 'refreshToken'>>({
       query: signOut,
     }),
 
-    register: build.mutation<IAuthTokens, ISignInForm>({
+    signUp: build.mutation<IAuthTokens, ISignInForm>({
       query: signUp,
     }),
   }),
 });
 
-export const { useLogInMutation, useLogOutMutation, useRegisterMutation } = authApi;
+export const { useSignInMutation, useSignOutMutation, useSignUpMutation } = authApi;

@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { Button, Input } from '@ant-design/react-native';
 import { useRouter } from 'expo-router';
+import { Routes } from '@constants/Routes';
+import { useSignInMutation } from '@modules/auth/api';
 
 export default function SignIn() {
   const router = useRouter();
   const { control, handleSubmit } = useForm();
+  const [signUp, { data }] = useSignInMutation();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: any) => {
+    signUp(data);
+    router.push(Routes.DASHBOARD)
   };
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
 
   return (
     <View style={styles.container}>
@@ -47,7 +55,7 @@ export default function SignIn() {
       </Button>
       <Text>
         Don't hane an account?
-        <Pressable onPress={() => router.push('/sign-up')}>
+        <Pressable onPress={() => router.push(Routes.SIGN_UP)}>
           <Text>Sign Up</Text>
       </Pressable>
       </Text>
