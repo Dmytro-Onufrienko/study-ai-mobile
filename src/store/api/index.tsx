@@ -4,7 +4,6 @@ import { reAuthQuery } from './reAuth.';
 
 export const internalApi = createApi({
   baseQuery: reAuthQuery,
-  reducerPath: 'internalApi',
   endpoints: () => ({}),
 });
 

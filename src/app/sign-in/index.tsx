@@ -9,18 +9,22 @@ import { storageService } from '@services/Storage';
 export default function SignIn() {
   const router = useRouter();
   const { control, handleSubmit } = useForm();
-  const [signUp, { isLoading, data, error }] = useSignInMutation();
+  const [signIn, { isLoading, data, error }] = useSignInMutation();
 
   const onSubmit = async (data: any) => {
-    const authTokens = await signUp(data).unwrap();
-
-    if (authTokens) {
-      storageService.setTokens(authTokens)
-      router.push(Routes.DASHBOARD)
+    try {
+      console.log(data)
+      const authTokens = await signIn(data).unwrap();
+      console.log(authTokens)
+  
+      if (authTokens) {
+        storageService.setTokens(authTokens)
+        router.push(Routes.DASHBOARD)
+      }
+    } catch(e: any)  {
+      console.log(e)
+      console.log(error)
     }
-
-
-    // TODO: handle failed login
   };
 
   return (

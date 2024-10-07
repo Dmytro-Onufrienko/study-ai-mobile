@@ -7,7 +7,6 @@ const userApi = internalApi.injectEndpoints({
       query: getCurrentUser
     })
   }),
-  overrideExisting: true,
 });
 
 export const { useGetCurrentUserQuery, useLazyGetCurrentUserQuery } = userApi;

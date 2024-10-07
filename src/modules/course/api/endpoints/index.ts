@@ -3,10 +3,10 @@ import { getCourses } from "../requests";
 
 const courseApi = internalApi.injectEndpoints({
   endpoints: build => ({
-    courses: build.query({
+    getCourses: build.query<any, void>({
       query: getCourses
     })
   })
 })
 
-export const { useCoursesQuery } = courseApi;
+export const { useGetCoursesQuery } = courseApi;
