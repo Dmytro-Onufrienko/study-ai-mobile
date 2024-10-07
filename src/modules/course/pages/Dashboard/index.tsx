@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { Text, View, ActivityIndicator } from '@ant-design/react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useGetCoursesQuery } from '@modules/course/api';

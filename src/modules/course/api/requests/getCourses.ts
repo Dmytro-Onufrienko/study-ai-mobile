@@ -2,5 +2,5 @@ import { ApiRoutes } from "@constants/ApiRoutes"
 
 export const getCourses = () => ({
   method: "GET",
-  url: ApiRoutes.GET_COURSES,
+  url: ApiRoutes.COURSE,
 })

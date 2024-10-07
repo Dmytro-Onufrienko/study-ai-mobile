@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Input, Button } from '@ant-design/react-native';
 import { StyleSheet, View } from 'react-native';
+import { useCreateCourseMutation } from '@modules/course/api';
 
 interface ICreateCourseModalProps {
   visible: boolean;
@@ -9,9 +10,11 @@ interface ICreateCourseModalProps {
 
 const CreateCourseModal: React.FC<ICreateCourseModalProps> = ({ visible, onClose }) => {
   const [courseName, setCourseName] = useState('');
+  const [createCourse, { isLoading, data, error }] = useCreateCourseMutation();
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     console.log(courseName);
+    await createCourse({ name: courseName })
     setCourseName('');
     onClose();
   };

@@ -3,5 +3,5 @@ export enum ApiRoutes  {
   SIGN_OUT = "auth/sign-in",
   SIGN_UP = "auth/sign-in",
   GET_CURRENT_USER = "user",
-  GET_COURSES = 'course'
+  COURSE = 'course'
 }
