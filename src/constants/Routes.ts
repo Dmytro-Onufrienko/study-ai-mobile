@@ -3,5 +3,8 @@ export enum Routes {
   SIGN_UP = '/sign-up',
   SIGN_OUT = '/sign-out',
   HOME = '/',
-  DASHBOARD = '/dashboard'
+  DASHBOARD = '/dashboard',
+  COURSE = '/course',
+  TOPIC = '/topic',
+  SUBTOPIC = '/subtopic',
 }

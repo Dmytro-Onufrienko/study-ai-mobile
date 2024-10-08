@@ -1,17 +1,20 @@
 import { FC, useState } from 'react';
-import { Text, View, ActivityIndicator } from '@ant-design/react-native';
+import { Text, View, ActivityIndicator, Button } from '@ant-design/react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useGetCoursesQuery } from '@modules/course/api';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import CreateCourseModal from '@modules/course/components/CreateCourseModal';
+import { useRouter } from 'expo-router';
+import { Routes } from '@constants/Routes';
 
 const Dashboard: FC = () => {
+  const router = useRouter();
   const { data, isLoading } = useGetCoursesQuery();
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
-  const handleCreateCourse = () => {
-    console.log('Create new course');
-  };
+  const handlePress = (id: string) => {
+    router.push(`${Routes.COURSE}/${id}`)
+  }
 
   return (
     <View style={styles.container}>
@@ -21,10 +24,10 @@ const Dashboard: FC = () => {
         <>
           <Text style={styles.title}>Your Courses</Text>
           {data && data.length > 0 ? (
-            data.map(({ name }: any, index: number) => (
-              <View key={index} style={styles.courseContainer}>
+            data.map(({ name, id }, index: number) => (
+              <Button key={index} style={styles.courseContainer} onPress={() => handlePress(id)} >
                 <Text style={styles.courseName}>{name}</Text>
-              </View>
+              </Button>
             ))
           ) : (
             <Text style={styles.noCourses}>No courses available</Text>
