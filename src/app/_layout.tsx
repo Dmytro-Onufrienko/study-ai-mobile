@@ -42,7 +42,7 @@ export default function RootLayout() {
           >
             <Stack.Screen name="sign-in" options={{ title: 'Sign In' }} />
             <Stack.Screen name="sign-up" options={{ title: 'Sign Up' }} />
-            <Stack.Screen name="dashboard" options={{ title: 'Dashboard' }} />
+            <Stack.Screen name="course" options={{ title: 'Dashboard' }} />
             <Stack.Screen name="course/[course]" options={{ title: 'Course' }} />
             <Stack.Screen name="+not-found" />
           </Stack>

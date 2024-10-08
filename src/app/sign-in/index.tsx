@@ -13,13 +13,11 @@ export default function SignIn() {
 
   const onSubmit = async (data: any) => {
     try {
-      console.log(data)
       const authTokens = await signIn(data).unwrap();
-      console.log(authTokens)
   
       if (authTokens) {
         storageService.setTokens(authTokens)
-        router.push(Routes.DASHBOARD)
+        router.push(Routes.COURSE)
       }
     } catch(e: any)  {
       console.log(e)

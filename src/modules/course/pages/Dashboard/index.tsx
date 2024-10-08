@@ -7,7 +7,7 @@ import CreateCourseModal from '@modules/course/components/CreateCourseModal';
 import { useRouter } from 'expo-router';
 import { Routes } from '@constants/Routes';
 
-const Dashboard: FC = () => {
+const Courses: FC = () => {
   const router = useRouter();
   const { data, isLoading } = useGetCoursesQuery();
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
@@ -42,7 +42,7 @@ const Dashboard: FC = () => {
   );
 };
 
-export default Dashboard;
+export default Courses;
 
 const styles = StyleSheet.create({
   container: {
