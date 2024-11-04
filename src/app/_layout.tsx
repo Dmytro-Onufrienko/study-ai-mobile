@@ -44,6 +44,8 @@ export default function RootLayout() {
             <Stack.Screen name="sign-up" options={{ title: 'Sign Up' }} />
             <Stack.Screen name="course" options={{ title: 'Dashboard' }} />
             <Stack.Screen name="course/[course]" options={{ title: 'Course' }} />
+            <Stack.Screen name="topic/[topic]" options={{ title: 'Topic' }} />
+            <Stack.Screen name="subtopic/[subtopic]" options={{ title: 'Topic' }} />
             <Stack.Screen name="+not-found" />
           </Stack>
         </ReduxProvider>

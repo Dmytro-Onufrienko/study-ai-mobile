@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { Text, View, ActivityIndicator, Button } from '@ant-design/react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useGetCoursesQuery } from '@modules/course/api';
-import AntDesign from '@expo/vector-icons/AntDesign';
+import Icon from '@expo/vector-icons/AntDesign';
 import CreateCourseModal from '@modules/course/components/CreateCourseModal';
 import { useRouter } from 'expo-router';
 import { Routes } from '@constants/Routes';
@@ -35,7 +35,7 @@ const Courses: FC = () => {
         </>
       )}
       <TouchableOpacity style={styles.fab} onPress={() => setIsModalVisible(true)}>
-        <AntDesign name="pluscircleo" size={24} color="black" />
+        <Icon name="pluscircleo" size={24} color="black" />
       </TouchableOpacity>
       <CreateCourseModal visible={isModalVisible} onClose={() => setIsModalVisible(false)} />
     </View>

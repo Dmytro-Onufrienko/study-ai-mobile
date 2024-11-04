@@ -4,17 +4,18 @@ import { useGetCourseQuery } from "@modules/course/api";
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from "expo-router";
 import { Routes } from "@constants/Routes";
+import { useGetTopicQuery } from "@modules/topic/api";
 
-interface ICourseProps {
-  courseId: string;
+interface ITopicProps {
+  topicId: string;
 }
 
-const Course: FC<ICourseProps> = ({ courseId }) => {
+const Topic: FC<ITopicProps> = ({ topicId }) => {
   const router = useRouter();
-  const { data, isLoading } = useGetCourseQuery({courseId});
+  const { data, isLoading } = useGetTopicQuery({topicId});
 
   const handlePress = (id: string) => {
-    router.push(`${Routes.TOPIC}/${id}`)
+    router.push(`${Routes.SUBTOPIC}/${id}`)
   }
 
   console.log(data)
@@ -25,15 +26,15 @@ const Course: FC<ICourseProps> = ({ courseId }) => {
         <ActivityIndicator size="large" color="#007bff" />
       ) : (
         <>
-          <Text style={styles.title}>Your Courses</Text>
-          {data?.topics && data.topics.length > 0 ? (
-            data.topics.map(({ name, id }, index: number) => (
+          <Text style={styles.title}>Topics</Text>
+          {data?.subtopics && data.subtopics.length > 0 ? (
+            data.subtopics.map(({ name, id }, index: number) => (
               <Button key={index} style={styles.topicContainer} onPress={() => handlePress(id)} >
                 <Text style={styles.topicName}>{name}</Text>
               </Button>
             ))
           ) : (
-            <Text style={styles.noCourses}>No courses available</Text>
+            <Text style={styles.noCourses}>No topics available</Text>
           )}
         </>
       )}
@@ -41,7 +42,7 @@ const Course: FC<ICourseProps> = ({ courseId }) => {
   );
 };
 
-export default Course;
+export default Topic;
 
 const styles = StyleSheet.create({
   container: {
