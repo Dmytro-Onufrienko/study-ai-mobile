@@ -17,8 +17,6 @@ const Topic: FC<ITopicProps> = ({ topicId }) => {
   const handlePress = (id: string) => {
     router.push(`${Routes.SUBTOPIC}/${id}`)
   }
-
-  console.log(data)
   
   return (
     <View style={styles.container}>
@@ -26,7 +24,7 @@ const Topic: FC<ITopicProps> = ({ topicId }) => {
         <ActivityIndicator size="large" color="#007bff" />
       ) : (
         <>
-          <Text style={styles.title}>Topics</Text>
+          <Text style={styles.title}>Subtopics</Text>
           {data?.subtopics && data.subtopics.length > 0 ? (
             data.subtopics.map(({ name, id }, index: number) => (
               <Button key={index} style={styles.topicContainer} onPress={() => handlePress(id)} >
@@ -64,6 +62,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 8,
     width: '90%',
+    height: 'auto',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,

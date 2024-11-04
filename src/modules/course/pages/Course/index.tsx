@@ -16,16 +16,13 @@ const Course: FC<ICourseProps> = ({ courseId }) => {
   const handlePress = (id: string) => {
     router.push(`${Routes.TOPIC}/${id}`)
   }
-
-  console.log(data)
-  
   return (
     <View style={styles.container}>
       {isLoading ? (
         <ActivityIndicator size="large" color="#007bff" />
       ) : (
         <>
-          <Text style={styles.title}>Your Courses</Text>
+          <Text style={styles.title}>Course Topics</Text>
           {data?.topics && data.topics.length > 0 ? (
             data.topics.map(({ name, id }, index: number) => (
               <Button key={index} style={styles.topicContainer} onPress={() => handlePress(id)} >
@@ -63,6 +60,7 @@ const styles = StyleSheet.create({
     padding: 15,
     marginVertical: 8,
     width: '90%',
+    height: 'auto',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
