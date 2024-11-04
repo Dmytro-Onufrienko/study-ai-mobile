@@ -4,11 +4,11 @@ import { useGetCurrentUserQuery } from "@modules/user/api/endpoints";
 import { useRouter } from "expo-router";
 import { FC, ReactElement } from "react"
 
-interface INoAuthProviderProps {
+interface IAuthProviderProps {
   children: ReactElement;
 }
 
-export const NoAuthProvider: FC<INoAuthProviderProps> = ({ children }) => {
+export const AuthProvider: FC<IAuthProviderProps> = ({ children }) => {
   const router = useRouter();
   const { data, isLoading } = useGetCurrentUserQuery({});
 
@@ -16,8 +16,8 @@ export const NoAuthProvider: FC<INoAuthProviderProps> = ({ children }) => {
     return <ActivityIndicator />
   }
 
-  if(!isLoading && data) {
-    router.push(Routes.DASHBOARD);
+  if(!isLoading && !data) {
+    router.replace(Routes.HOME);
   }
 
   return children;
