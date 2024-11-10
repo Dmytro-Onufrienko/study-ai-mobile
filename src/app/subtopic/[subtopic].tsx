@@ -21,7 +21,7 @@ const SubtopicPage: FC = () => {
       color: '#2A2A2A',
       marginBottom: 16,
       paddingBottom: 8,
-      textAlign: 'center',
+      textAlign: 'center' as const,
     },
     h2: {
       fontSize: 24,
@@ -29,7 +29,7 @@ const SubtopicPage: FC = () => {
       color: '#3B3B3B',
       marginBottom: 14,
       paddingBottom: 6,
-      textAlign: 'center'
+      textAlign: 'center' as const,
     },
     h3: {
       fontSize: 20,
@@ -39,7 +39,7 @@ const SubtopicPage: FC = () => {
       paddingBottom: 4,
       borderBottomWidth: 1,
       borderBottomColor: '#D1D1D1',
-      textAlign: 'center'
+      textAlign: 'center' as const,
     },
     p: {
       fontSize: 16,
