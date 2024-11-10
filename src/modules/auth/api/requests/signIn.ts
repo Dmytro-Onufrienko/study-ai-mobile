@@ -1,4 +1,4 @@
-import { ApiRoutes } from "@constants/ApiRoutes";
+import { ApiRoutes } from "@config/ApiRoutes";
 import { ISignInForm } from "@modules/auth/interfaces/ISignInForm";
 
 

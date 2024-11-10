@@ -4,8 +4,8 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useGetCoursesQuery } from '@modules/course/api';
 import Icon from '@expo/vector-icons/AntDesign';
 import CreateCourseModal from '@modules/course/components/CreateCourseModal';
-import { useRouter } from 'expo-router';
-import { Routes } from '@constants/Routes';
+import { useRouter } from '@modules/common/hooks';
+import { Routes } from '@config/Routes';
 
 const Courses: FC = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const Courses: FC = () => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const handlePress = (id: string) => {
-    router.push(`${Routes.COURSE}/${id}`)
+    router.push({ path: Routes.COURSE, params: id })
   }
 
   return (
@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f9f9f9',
   },
   title: {
     fontSize: 24,
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   courseContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#c6e99f',
     borderRadius: 8,
     padding: 15,
     marginVertical: 8,
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 20,
     right: 20,
-    backgroundColor: '#007bff',
+    backgroundColor: '#4C9A2A',
     width: 56,
     height: 56,
     borderRadius: 28,

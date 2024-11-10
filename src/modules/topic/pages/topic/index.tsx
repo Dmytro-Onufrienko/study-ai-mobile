@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Text, View, ActivityIndicator, Button } from '@ant-design/react-native';
 import { useGetCourseQuery } from "@modules/course/api";
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { useRouter } from "expo-router";
-import { Routes } from "@constants/Routes";
+import { useRouter } from '@modules/common/hooks';
+import { Routes } from "@config/Routes";
 import { useGetTopicQuery } from "@modules/topic/api";
 
 interface ITopicProps {
@@ -15,7 +15,7 @@ const Topic: FC<ITopicProps> = ({ topicId }) => {
   const { data, isLoading } = useGetTopicQuery({topicId});
 
   const handlePress = (id: string) => {
-    router.push(`${Routes.SUBTOPIC}/${id}`)
+    router.push({ path: Routes.SUBTOPIC, params: id })
   }
   
   return (
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f9f9f9',
   },
   title: {
     fontSize: 24,
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   topicContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#c6e99f',
     borderRadius: 8,
     padding: 15,
     marginVertical: 8,

@@ -2,10 +2,10 @@ import type { FC } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { ActivityIndicator, Button, Input } from '@ant-design/react-native';
-import { useRouter } from 'expo-router';
-import { Routes } from '@constants/Routes';
+import { Routes } from '@config/Routes';
 import { useSignInMutation } from '@modules/auth/api';
 import { storageService } from '@services/Storage';
+import { useRouter } from '@modules/common/hooks';
 
 const SignInPage: FC = () => {
   const router = useRouter();

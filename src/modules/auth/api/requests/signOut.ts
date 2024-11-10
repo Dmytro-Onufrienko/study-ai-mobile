@@ -1,4 +1,4 @@
-import { ApiRoutes } from "@constants/ApiRoutes";
+import { ApiRoutes } from "@config/ApiRoutes";
 import { IAuthTokens } from "@modules/auth/interfaces/IAuthTokens";
 
 export const signOut = (body: Pick<IAuthTokens, 'refreshToken'>) => ({

@@ -2,7 +2,8 @@ import type { FC } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { Button, Input } from '@ant-design/react-native';
-import { useRouter } from 'expo-router';
+import { useRouter } from '@modules/common/hooks';
+import { Routes } from '@config/Routes';
 
 const SignUpPage: FC = () => {
   const router = useRouter();
@@ -47,7 +48,7 @@ const SignUpPage: FC = () => {
       </Button>
       <Text>
         Don't hane an account?
-        <Pressable onPress={() => router.push('/sign-in')}>
+        <Pressable onPress={() => router.push(Routes.SIGN_IN)}>
           <Text>Sign In</Text>
         </Pressable>
       </Text>

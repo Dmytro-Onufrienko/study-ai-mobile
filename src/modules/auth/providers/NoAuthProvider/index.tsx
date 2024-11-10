@@ -1,7 +1,7 @@
 import { ActivityIndicator } from "@ant-design/react-native";
-import { Routes } from "@constants/Routes";
+import { Routes } from "@config/Routes";
 import { useGetCurrentUserQuery } from "@modules/user/api/endpoints";
-import { useRouter } from "expo-router";
+import { useRouter } from '@modules/common/hooks';
 import { FC, ReactElement } from "react"
 
 interface INoAuthProviderProps {

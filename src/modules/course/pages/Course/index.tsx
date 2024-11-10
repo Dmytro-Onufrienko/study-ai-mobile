@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Text, View, ActivityIndicator, Button } from '@ant-design/react-native';
 import { useGetCourseQuery } from "@modules/course/api";
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { useRouter } from "expo-router";
-import { Routes } from "@constants/Routes";
+import { StyleSheet } from 'react-native';
+import { useRouter } from '@modules/common/hooks';
+import { Routes } from "@config/Routes";
 
 interface ICourseProps {
   courseId: string;
@@ -14,7 +14,7 @@ const Course: FC<ICourseProps> = ({ courseId }) => {
   const { data, isLoading } = useGetCourseQuery({courseId});
 
   const handlePress = (id: string) => {
-    router.push(`${Routes.TOPIC}/${id}`)
+    router.push({path: Routes.TOPIC, params: id})
   }
   return (
     <View style={styles.container}>
@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f9f9f9',
   },
   title: {
     fontSize: 24,
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   topicContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#c6e99f',
     borderRadius: 8,
     padding: 15,
     marginVertical: 8,

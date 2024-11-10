@@ -7,8 +7,8 @@
       "@modules/*": [
         "modules/*"
       ],
-      "@constants/*": [
-        "constants/*"
+      "@config/*": [
+        "config/*"
       ],
       "@hooks/*": [
         "hooks/*"

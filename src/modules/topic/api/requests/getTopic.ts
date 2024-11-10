@@ -1,4 +1,4 @@
-import { ApiRoutes } from "@constants/ApiRoutes"
+import { ApiRoutes } from "@config/ApiRoutes"
 import { IGetTopic } from "@modules/topic/interfaces/IGetTopic"
 
 export const getTopic = ({ topicId }: IGetTopic) => ({

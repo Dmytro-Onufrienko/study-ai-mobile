@@ -1,4 +1,4 @@
-import { ApiRoutes } from "@constants/ApiRoutes";
+import { ApiRoutes } from "@config/ApiRoutes";
 import { ICreateCourse } from "@modules/course/interfaces/ICreateCourse";
 
 export const createCourse = (body: ICreateCourse) => ({
