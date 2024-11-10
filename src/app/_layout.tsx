@@ -14,6 +14,14 @@ const store = setupStore();
 
 SplashScreen.preventAutoHideAsync();
 
+const customTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#F5F1E3',
+  },
+};
+
 export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../../assets/fonts/SpaceMono-Regular.ttf'),
@@ -35,9 +43,9 @@ export default function RootLayout() {
         <ReduxProvider store={store}>
           <Stack
             screenOptions={{
-              header: () => (
-                <CustomHeader />
-              ),
+              header: () => <CustomHeader />,
+            
+              contentStyle: { backgroundColor: customTheme.colors.background },
             }}
           >
             <Stack.Screen name="sign-in" options={{ title: 'Sign In' }} />
