@@ -6,4 +6,5 @@ export enum ApiRoutes  {
   COURSE = 'course',
   TOPIC = 'topic',
   SUBTOPIC = 'subtopic',
+  MATERIAL = 'subtpoic/material'
 }

@@ -17,6 +17,8 @@ const Topic: FC<ITopicProps> = ({ topicId }) => {
   const handlePress = (id: string) => {
     router.push({ path: Routes.SUBTOPIC, params: id })
   }
+
+  console.log(data);
   
   return (
     <View style={styles.container}>
